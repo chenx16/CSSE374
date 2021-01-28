@@ -101,7 +101,8 @@ public abstract class CoffeeMachineController{
 			   
 	            file.write(commandsArray.toString());
 	            file.flush();
-	 
+	            file.close();
+	            return;
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
@@ -120,7 +121,8 @@ public abstract class CoffeeMachineController{
 			   
             file.write(userResponse.toString());
             file.flush();
- 
+            file.close();
+            return;
         } catch (IOException e) {
             e.printStackTrace();
         }
