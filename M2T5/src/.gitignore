@@ -6,3 +6,9 @@
 /Response.class
 /Observable.class
 /Observer.class
+/AdvancedController.class
+/AdvancedProduce.class
+/CoffeeMachineController.class
+/SimpleController.class
+/SimpleProduce.class
+/produceDrinkBehavior.class
