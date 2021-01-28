@@ -1,1 +1,1 @@
-[{"condiments":[{"qty":1,"name":"sugar"}],"address":{"ZIP":"1","street":"Baker Street 112"},"orderId":"1"}, {"condiments":[{"qty":4,"name":"sugar"}],"address":{"ZIP":"2","street":"Baker Street 321"},"orderId":"2"}]
+[{"condiments":[],"address":{"ZIP":"1","street":"1"},"orderId":"1"}]
