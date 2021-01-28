@@ -1,15 +1,1 @@
-
-{
-  "order": { "orderID": 1,
-            "address": {
-                  "street": "200 N Main",
-                  "ZIP": 47803
-            },
-            "drink": "Americano",
-            "condiments": [
-                {"name": "Sugar", "qty": 1},
-                {"name": "Cream", "qty": 2}
-            ]
-            }
-}
-
+[{"condiments":[{"qty":1,"name":"sugar"}],"address":{"ZIP":"1","street":"Baker Street 112"},"orderId":"1"}, {"condiments":[{"qty":4,"name":"sugar"}],"address":{"ZIP":"2","street":"Baker Street 321"},"orderId":"2"}]

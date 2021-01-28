@@ -1,8 +1,8 @@
 
 public class SimpleController extends CoffeeMachineController {
 
-	public SimpleController(int id, String type, int status) {
-		super(id, type, status);
+	public SimpleController(int id) {
+		super(id, "Simple", -1);
 		// TODO Auto-generated constructor stub
 	}
 

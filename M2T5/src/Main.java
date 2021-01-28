@@ -16,7 +16,7 @@ public class Main {
 	private static HashMap<Integer, Integer> orders = new HashMap<>();
 	private static int orderId = 1;
 	private static JSONObject Orders = new JSONObject();
-	private static JsonArray orderArrays = new JsonArray();
+	private static JSONArray orderArrays = new JSONArray();
 	public static void main(String[] args) {
 		 while(true) {
 			   System.out.println("--------------------------------------------");
@@ -38,7 +38,7 @@ public class Main {
 			   Condiment c1 = new Condiment(condiment, qty);
 			   ArrayList<Condiment> condiments = new ArrayList<Condiment>();
 			   condiments.add(c1);
-			   Order order = new Order(String.valueOf(orderId), street,zip, drinktype, condiments);
+			   Order order = new Order(orderId, street,zip, drinktype, condiments);
 			   orderId = orderId + 1;
 			   JSONObject orderObj = new JSONObject();
 			   
@@ -47,7 +47,7 @@ public class Main {
 			   
 			   
 			  
-			   JsonArray conArray = new JsonArray();
+			   JSONArray conArray = new JSONArray();
 			   for(int i = 0; i < condiments.size(); i++) {
 			   JSONObject conObj = new JSONObject();
 			   conObj.put("qty", condiments.get(i).qty);
@@ -55,11 +55,11 @@ public class Main {
 			   
 			   conArray.add(conObj);
 			   }
-			   orderObj.put("orderId", order.orderID);
+			   orderObj.put("orderId", String.valueOf(order.orderID));
 			   orderObj.put("condiments", conArray);
 			   orderObj.put("address", addressObj);
-			   addressObj.put("ZIP", order.orderID);
-			   addressObj.put("street", order.street);
+			   addressObj.put("ZIP", String.valueOf(order.orderID));
+			   addressObj.put("street", String.valueOf(order.street));
 			  
 			   orderArrays.add(orderObj);
 			   Orders.put("", orderArrays);

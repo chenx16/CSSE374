@@ -1,8 +1,8 @@
 
 public class AdvancedController extends CoffeeMachineController {
 
-	public AdvancedController(int id, String type, int status) {
-		super(id, type, status);
+	public AdvancedController(int id) {
+		super(id, "Advanced", -1);
 		// TODO Auto-generated constructor stub
 	}
 
