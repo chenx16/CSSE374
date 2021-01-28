@@ -1,13 +1,17 @@
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.text.html.Option;
 
-public class Order {
-	int orderID;
-	String street;
-	int zip;
-	String drink;
-	ArrayList<Condiment> condiments;
+public class Order implements Observer{
+	private int orderID;
+	private String street;
+	private int zip;
+	private String drink;
+	private ArrayList<Condiment> condiments;
+    private CoffeeMachineController controller;
+	
 	
 	public Order(int orderID, String street, int zip, String drink) {
 		this.orderID = orderID;
@@ -15,6 +19,7 @@ public class Order {
 		this.zip = zip;
 		this.drink = drink;
 		this.condiments = new ArrayList<>();
+		this.controller = new SimpleController(zip, drink, zip);
 	}
 	
 	public Order(int orderID, String streetAddress, int zipcode, String drink, ArrayList<Condiment> condiments) {
@@ -23,6 +28,7 @@ public class Order {
 		this.zip = zipcode;
 		this.drink = drink;
 		this.condiments = condiments;
+		this.controller = new AdvancedController(zipcode, drink, zipcode);
 	}
 	
 	public int getOrderID() { 
@@ -43,6 +49,12 @@ public class Order {
 	
 	public ArrayList<Condiment> getCondiments(){
 		return this.condiments;
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
 	}
  
 }
