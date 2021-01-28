@@ -4,6 +4,7 @@ import java.util.Observer;
 
 import javax.swing.text.html.Option;
 
+<<<<<<< HEAD
 public class Order implements Observer{
 	private int orderID;
 	private String street;
@@ -12,8 +13,16 @@ public class Order implements Observer{
 	private ArrayList<Condiment> condiments;
     private CoffeeMachineController controller;
 	
+=======
+public class Order {
+	String orderID;
+	String street;
+	String zip;
+	String drink;
+	ArrayList<Condiment> condiments;
+>>>>>>> 4e7569e93b62ceb553f6a2338a9b0d3f14b11e96
 	
-	public Order(int orderID, String street, int zip, String drink) {
+	public Order(String orderID, String street, String zip, String drink) {
 		this.orderID = orderID;
 		this.street = street;
 		this.zip = zip;
@@ -22,7 +31,7 @@ public class Order implements Observer{
 		this.controller = new SimpleController(zip, drink, zip);
 	}
 	
-	public Order(int orderID, String streetAddress, int zipcode, String drink, ArrayList<Condiment> condiments) {
+	public Order(String orderID, String streetAddress, String zipcode, String drink, ArrayList<Condiment> condiments) {
 		this.orderID = orderID;
 		this.street = streetAddress;
 		this.zip = zipcode;
@@ -31,7 +40,7 @@ public class Order implements Observer{
 		this.controller = new AdvancedController(zipcode, drink, zipcode);
 	}
 	
-	public int getOrderID() { 
+	public String getOrderID() { 
 		return this.orderID;
 	}
 	
@@ -39,7 +48,7 @@ public class Order implements Observer{
 		return this.street;
 	}
 	
-	public int getZipcode() {
+	public String getZipcode() {
 		return this.zip;
 	}
 	
