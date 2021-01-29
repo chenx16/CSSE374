@@ -11,7 +11,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 
-public class Order {
+public class Order extends Observable {
 	protected int orderID;
 	protected String street;
 	protected String zip;
@@ -21,7 +21,7 @@ public class Order {
 //	private static JSONObject Orders = new JSONObject();
 //	protected CoffeeMachineController controller;
 
-	
+	s
 	public Order(int orderID, String street, String zip, String drink, ArrayList<Condiment> condiments) {
 		this.orderID = orderID;
 		this.street = street;

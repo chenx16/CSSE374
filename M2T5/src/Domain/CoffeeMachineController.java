@@ -7,8 +7,7 @@ import java.util.Scanner;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
-public abstract class CoffeeMachineController{
+public abstract class CoffeeMachineController implements Observer {
 	produceDrinkBehavior producedrink;
 	int id;
 	String type;
@@ -19,20 +18,19 @@ public abstract class CoffeeMachineController{
 	private static JSONArray userArray = new JSONArray();
 	private static JSONArray commandsArray = new JSONArray();
 	private static JSONArray orderArrays = new JSONArray();
-	private static int orderId;
+	private static int orderId=1;
 	public CoffeeMachineController(int id, String type, int status) {
 		this.id = id;
 		this.type = type;
 		this.status = status;
 		this.orders = new ArrayList<Order>();
-		this.orderId = 1;
 	}
 	
 	public void importResponse() {
 //		System.out.print("Hello10");
 		  JSONObject controllerResponse = new JSONObject();
 		  JSONObject orderId = new JSONObject();
-		  orderId.put("orderID", this.orders.size());
+		  orderId.put("orderID", this.orders.get(orders.size()-1).orderID);
 		  orderId.put("status", 0);
 		  controllerResponse.put("drinkResponse", orderId);
 		  responseArrays.add(controllerResponse);
@@ -62,6 +60,8 @@ public abstract class CoffeeMachineController{
 		   System.out.println("Please enter your drink type");
 		   String drinktype = scanner.next();
 		   System.out.println(this.type);
+		   
+		   
 		   if(this.type.equals("Automated")) {
 
 		   System.out.println("Please enter your condiment");
@@ -77,7 +77,6 @@ public abstract class CoffeeMachineController{
 		   ArrayList<Condiment> condiments = new ArrayList<Condiment>();
 		   condiments.add(c1);
 		  
-		   
 		   while(true) {
 			System.out.println("Do you still want to add condiment? (Y=Yes/N=No)");
 			String answer =  scanner.next();
@@ -110,17 +109,16 @@ public abstract class CoffeeMachineController{
 		   System.out.print("Order condiment" + order.condiments.get(0).getName());
 		   this.addOrder(order);
 		   this.orderId++;
-		   
 		   this.importOrder(order);
-		   }else {
+		   }
+		   else {
 			   ArrayList<Condiment> condiments = new ArrayList<Condiment>();
 			   Order order = new Order(this.orderId, street,zip, drinktype, condiments);
 			   this.addOrder(order);
 			   this.orderId++;
 			   this.importOrder(order);
+		   
 		   }
-		   
-		   
 //		   System.out.print("CONDIMENT"+condiment);
 //		   Condiment c1 = new Condiment(condiment, qty);
 		   
@@ -141,9 +139,9 @@ public abstract class CoffeeMachineController{
 		   System.out.println("Size in import order "+order.condiments.size());
 		   for(int i = 0; i < order.condiments.size(); i++) {
 		   JSONObject conObj = new JSONObject();
-		   conObj.put("qty", order.condiments.get(i).qty);
-		   conObj.put("name", order.condiments.get(i).name);
-		   System.out.print(order.condiments.get(i).name);
+		   conObj.put("qty", order.condiments.get(i).getQty());
+		   conObj.put("name", order.condiments.get(i).getName());
+		   System.out.print(order.condiments.get(i).getName());
 		   conArray.add(conObj);
 		   }
 		   addressObj.put("ZIP", String.valueOf(order.orderID));
@@ -184,8 +182,8 @@ public abstract class CoffeeMachineController{
 		for(int i = 0; i < this.orders.get(orders.size()-1).condiments.size(); i++) {
 		JSONObject c1 = new JSONObject();
 		JSONObject c2 = new JSONObject();
-		c1.put("Name", this.orders.get(orders.size()-1).condiments.get(i).name);
-		c2.put("qty", this.orders.get(orders.size()-1).condiments.get(i).qty);
+		c1.put("Name", this.orders.get(orders.size()-1).condiments.get(i).getName());
+		c2.put("qty", this.orders.get(orders.size()-1).condiments.get(i).getQty());
 		condiments.add(c1);
 		condiments.add(c2);
 		}
@@ -209,7 +207,7 @@ public abstract class CoffeeMachineController{
 	
 	public void userResponse() {
 		JSONObject response = new JSONObject();
-		response.put("orderID", 1);
+		response.put("orderID", this.orders.get(orders.size()-1).orderID);
 		response.put("coffee_machine_id", this.coffeemachineid);
 		response.put("status", 0);
 		response.put("status-message", "Your coffee has been prepared with your desired options.");

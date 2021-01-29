@@ -2,7 +2,7 @@ package Domain;
 import java.util.ArrayList;
 
 public class Condiment {
-	String name;
+	protected String name;
 	int qty;
 	
 	public Condiment(String name, int qty) {
