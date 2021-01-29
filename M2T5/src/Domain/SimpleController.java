@@ -2,11 +2,11 @@ package Domain;
 import java.util.ArrayList;
 
 public class SimpleController extends CoffeeMachineController {
-	produceDrinkBehavior pb;
+	public produceDrinkBehavior pb;
 	
-	public SimpleController(int id) {
+	public SimpleController(int id,produceDrinkBehavior pb) {
 		super(id, "Simple", -1);
-		this.pb = new SimpleProduce();
+		this.pb = pb;
 		// TODO Auto-generated constructor stub
 	}
 

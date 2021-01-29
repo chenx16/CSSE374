@@ -3,11 +3,16 @@ package Presentation;
 import java.util.Scanner;
 
 import Domain.AdvancedController;
+import Domain.AdvancedProduce;
 import Domain.SimpleController;
+import Domain.SimpleProduce;
+import Domain.produceDrinkBehavior;
 
 public class Server {
-	AdvancedController ac = new AdvancedController(1);
-	 SimpleController sc = new SimpleController(2);
+	produceDrinkBehavior pba = new AdvancedProduce();
+	produceDrinkBehavior pbs = new SimpleProduce();
+	AdvancedController ac = new AdvancedController(1,pba);
+	 SimpleController sc = new SimpleController(2,pbs);
 	 
 	 public void run() {
 		 Scanner scanner = new Scanner(System.in);
@@ -23,6 +28,7 @@ public class Server {
 //			  System.out.print("Hello5");
 			  ac.userResponse();
 //			  System.out.print("Hello6");
+			  ac.pb.producedrink();
 		   }
 		   else if(selection == 1) {
 			   sc.askForOrder();
@@ -30,6 +36,7 @@ public class Server {
 			   sc.importResponse();
 			  
 			   sc.userResponse();
+			   sc.pb.producedrink();
 		   }
 		   System.out.println("Your coffee has been prepared with your desired options.");
 	 }
