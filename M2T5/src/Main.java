@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import org.json.simple.*;
 import org.json.simple.parser.*;
-
+import org.json.simple.JSONObject;
 import com.github.cliftonlabs.json_simple.JsonArray;
 
 public class Main {
@@ -31,10 +31,13 @@ public class Main {
 			   int selection = scanner.nextInt();
 			   if(selection == 2) {
 				   ac.askForOrder();
+//				   System.out.print("Hello1");
 				   ac.pushCommand();
+//				   System.out.print("Hello4");
 				  ac.importResponse();
-				 
+//				  System.out.print("Hello5");
 				  ac.userResponse();
+//				  System.out.print("Hello6");
 			   }
 			   else if(selection == 1) {
 				   sc.askForOrder();
@@ -42,8 +45,6 @@ public class Main {
 				   sc.importResponse();
 				  
 				   sc.userResponse();
-			   }else {
-				   continue;
 			   }
 			  
 //			   orderId = orderId + 1;
