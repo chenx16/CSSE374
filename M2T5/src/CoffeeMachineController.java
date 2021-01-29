@@ -195,7 +195,7 @@ public abstract class CoffeeMachineController{
 		
 	}
 	public void addOrder(Order order) {
-		System.out.print("Order condiment" + order.condiments.get(0).getName());
+//		System.out.print("Order condiment" + order.condiments.get(0).getName());
 		this.orders.add(order);
 	}
 	
