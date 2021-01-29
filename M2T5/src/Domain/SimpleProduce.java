@@ -1,3 +1,4 @@
+package Domain;
 
 public class SimpleProduce implements produceDrinkBehavior {
 	

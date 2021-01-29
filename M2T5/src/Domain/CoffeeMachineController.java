@@ -1,3 +1,4 @@
+package Domain;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,15 +63,48 @@ public abstract class CoffeeMachineController{
 		   String drinktype = scanner.next();
 		   System.out.println(this.type);
 		   if(this.type.equals("Automated")) {
+
 		   System.out.println("Please enter your condiment");
 		   condiment = scanner.next();
 		   System.out.println("Please enter quantity");
 		   qty = scanner.nextInt();
-		   System.out.print("condiment "+condiment);
-		   System.out.print("qty "+qty);
+		   
+		   System.out.print("condiment: "+condiment);
+		   System.out.println();
+		   System.out.print("quantity: "+qty);
+		   System.out.println();
 		   Condiment c1 = new Condiment(condiment, qty);
 		   ArrayList<Condiment> condiments = new ArrayList<Condiment>();
 		   condiments.add(c1);
+		  
+		   
+		   while(true) {
+			System.out.println("Do you still want to add condiment? (Y=Yes/N=No)");
+			String answer =  scanner.next();
+			if(answer.equals("N")) break;
+			else if(answer.equals("Y")){
+				System.out.println("Please enter your condiment");
+				   condiment = scanner.next();
+				   System.out.println("Please enter quantity");
+				   qty = scanner.nextInt();
+				   
+				   System.out.print("condiment: "+condiment);
+				   System.out.println();
+				   System.out.print("quantity: "+qty);
+				   System.out.println();
+				   Condiment c = new Condiment(condiment, qty);
+				   condiments.add(c);
+			}
+			else {
+				System.out.print("Incorrect Information. Please enter again");
+				System.out.println();
+			}
+
+		   }
+		   
+		   
+		   
+		   
 		   System.out.println("Size in ask for order "+condiments.size());
 		   Order order = new Order(this.orderId, street,zip, drinktype, condiments);
 		   System.out.print("Order condiment" + order.condiments.get(0).getName());
