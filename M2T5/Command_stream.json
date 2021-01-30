@@ -1,1 +1,1 @@
-[{"command":{"Options":[{"Name":"milk"},{"qty":2},{"Name":"sugar"},{"qty":1}],"controller_id":1,"orderID":1,"coffee_machine_id":8,"DrinkName":"latea","Requesttype":"Automated"}},{"command":{"Options":null,"controller_id":2,"orderID":2,"coffee_machine_id":5,"DrinkName":"american","Requesttype":"Simple"}}]
+[{"command":{"Options":null,"controller_id":2,"orderID":1,"coffee_machine_id":8,"DrinkName":"1","Requesttype":"Simple"}},{"command":{"Options":null,"controller_id":2,"orderID":2,"coffee_machine_id":8,"DrinkName":"1","Requesttype":"Simple"}}]

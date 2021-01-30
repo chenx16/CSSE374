@@ -12,5 +12,13 @@
 /SimpleController.class
 /SimpleProduce.class
 /produceDrinkBehavior.class
+/.classpath
+/.gitignore
+/.project
+/App-response.json
+/Command_stream.json
 /Domain/
 /Presentation/
+/Test/
+/controller-response.json
+/order-input.json
