@@ -1,5 +1,7 @@
 package Data;
 
-public class CondimentDecorator {
+public abstract class CondimentDecorator extends DrinkType{
+
+	public abstract String getRecipe();
 
 }

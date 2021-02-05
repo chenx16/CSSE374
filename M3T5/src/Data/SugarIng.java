@@ -1,16 +1,15 @@
 package Data;
 
-public class Coffee extends IngrendientDecorator {
+public class SugarIng extends IngrendientDecorator {
 DrinkType d;
 	
-	public  Coffee (DrinkType d) {
+	public SugarIng (DrinkType d) {
 		this.d = d;
 	}
 
 	@Override
 	public String getRecipe() {
 		// TODO Auto-generated method stub
-		return d.getRecipe() + " + Coffee Ing";
+		return d.getRecipe() + " + Sugar Ing";
 	}
-
 }

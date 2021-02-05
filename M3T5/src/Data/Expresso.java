@@ -1,5 +1,8 @@
 package Data;
 
-public class Expresso {
+public class Expresso extends DrinkType {
+	public Expresso() {
+		recipe = "Drink Type: Expresso";
+		}
 
 }
