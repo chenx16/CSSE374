@@ -1,5 +1,5 @@
 package Domain;
 
-public class OrderFactory {
-
+abstract class OrderFactory {
+	public abstract AbstractOrder OrderCoffee();
 }

@@ -1,5 +1,5 @@
 package Domain;
 
-public class ProgrammableController {
+public class ProgrammableController extends Controller{
 
 }

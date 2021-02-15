@@ -1,5 +1,5 @@
 package Domain;
 
-public class SimpleController {
+public class SimpleController extends Controller{
 
 }
