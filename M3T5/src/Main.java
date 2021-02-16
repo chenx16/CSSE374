@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
-
+import java.util.Random;
 import Data.Americano;
 import Data.Coffee;
 import Data.ColumbiaDark;
@@ -32,8 +33,11 @@ public class Main {
 	static HashMap<String, Integer> condMap;
 	static HashMap<String, String> ingreMap;
 	static AbstractOrder order;
+	
 	public static void main(String[] args) {
 		 while(true) {
+		String error;
+		int status;
 		condMap = new HashMap<String, Integer>();
 		ingreMap = new HashMap<String, String>();
 		Scanner scanner = new Scanner(System.in);
@@ -215,6 +219,44 @@ public class Main {
 		 beverage3 = new SugarCond(beverage3); beverage3 = new Cream(beverage3);
 		 System.out.println(beverage3.getRecipe());
 		 */
+
+		Random random = new Random();
+		int temp = random.nextInt(3 - 1 + 1) + 1;
+		String ele = null;
+		if(temp==1) {
+			status=1;
+			if(condMap.size()!=0) {
+				for ( String key : condMap.keySet() ) {
+					ele=key;
+				}	
+				error = "Out of "+ ele  + ", drink cancelled";	
+			}
+			
+			else if(ingreMap.size()!=0) {
+				for ( String key : ingreMap.keySet() ) {
+					ele=key;
+				}	
+				error = "Out of "+ ele  + ", drink cancelled";	
+			}
+			
+			else {
+				status = 0;
+			}
+			
+		}
+		else if(temp==2) {
+			status=1;
+			error =  "Machine jammed";
+		}
+		else {
+			status=0;
+		}
+	
+
+
+	   
+
+		
 
 		 }
 	}
