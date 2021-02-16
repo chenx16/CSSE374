@@ -57,7 +57,7 @@ public class Main {
 		ingreMap = new HashMap<String, String>();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("--------------------------------------------");
-		System.out.println("System: Start order1");
+		System.out.println("System: Start order");
 		System.out.println("Enter your address");
 		String address = scanner.nextLine();
 		System.out.println("Enter your zipcode please");
@@ -237,7 +237,7 @@ public class Main {
               error = "Out of " + ele + ", drink cancelled";
               JSONObject controllerResponse = new JSONObject();
        		  JSONObject orderId = new JSONObject();
-       		  orderId.put("orderID", orders.get(orders.size()-1).orderID);
+       		  orderId.put("orderID", orders.size());
        		  orderId.put("status", status);
        		  controllerResponse.put("drinkResponse", orderId);
        		  responseArrays.add(controllerResponse);
@@ -250,6 +250,22 @@ public class Main {
        	            e.printStackTrace();
        	        }
                  
+       		JSONObject AppResponse = new JSONObject();
+     		  JSONObject app= new JSONObject();
+     		  app.put("orderID", orders.size());
+     		  app.put("status", status);
+     		  controllerResponse.put("drinkResponse", orderId);
+     		  responseArrays.add(controllerResponse);
+     		  try (FileWriter file = new FileWriter("controller-response.json")) {
+//     			    System.out.print("Hello9");
+     	            file.write(responseArrays.toString());
+     	            file.flush();
+     	            
+     	        } catch (IOException e) {
+     	            e.printStackTrace();
+     	        }
+       		  
+       		 
              }
 
 
@@ -261,7 +277,7 @@ public class Main {
                  error = "Out of " + ele + ", drink cancelled";
                  JSONObject controllerResponse = new JSONObject();
           		  JSONObject orderId = new JSONObject();
-          		  orderId.put("orderID", orders.get(orders.size()-1).orderID);
+          		  orderId.put("orderID", orders.size());
           		  orderId.put("status", status);
           		  controllerResponse.put("drinkResponse", orderId);
           		  responseArrays.add(controllerResponse);
@@ -281,7 +297,7 @@ public class Main {
             	 status = 0;
             	 JSONObject controllerResponse = new JSONObject();
          		  JSONObject orderId = new JSONObject();
-         		  orderId.put("orderID", orders.get(orders.size()-1).orderID);
+         		  orderId.put("orderID", orders.size());
          		  orderId.put("status", status);
          		  controllerResponse.put("drinkResponse", orderId);
          		  responseArrays.add(controllerResponse);
@@ -302,7 +318,7 @@ public class Main {
              error = "Machine jammed";
              JSONObject controllerResponse = new JSONObject();
       		  JSONObject orderId = new JSONObject();
-      		  orderId.put("orderID", orders.get(orders.size()-1).orderID);
+      		  orderId.put("orderID", orders.size());
       		  orderId.put("status", status);
       		  controllerResponse.put("drinkResponse", orderId);
       		  responseArrays.add(controllerResponse);
@@ -318,7 +334,7 @@ public class Main {
              status = 0;
              JSONObject controllerResponse = new JSONObject();
       		  JSONObject orderId = new JSONObject();
-      		  orderId.put("orderID", orders.get(orders.size()-1).orderID);
+      		  orderId.put("orderID", orders.size());
       		  orderId.put("status", status);
       		  controllerResponse.put("drinkResponse", orderId);
       		  responseArrays.add(controllerResponse);
