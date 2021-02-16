@@ -10,5 +10,7 @@ public abstract class AbstractOrder {
 	
 	public abstract double makeCoffee();
 
+	
+
 }
 
