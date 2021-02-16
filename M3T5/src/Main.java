@@ -231,6 +231,47 @@ public class Main {
 			Random random = new Random();
 			int temp = random.nextInt(3 - 1 + 1) + 1;
 			String ele = null;
+			//command stream
+			JSONObject stream = new JSONObject();
+			JSONObject command = new JSONObject();
+			command.put("orderID", orders.size());
+			command.put("DrinkName", drinktype);
+			if (de.equals("Y")) {
+				command.put("Requesttype", "Programmable");
+			}else {
+				command.put("Requesttype", "Simple");
+			}
+			stream.put("command", command);
+			commandsArray.add(stream);
+			try (FileWriter file = new FileWriter("Command_stream.json")) {
+				file.write(commandsArray.toString());
+				file.flush();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
+			//order input
+			JSONObject orderinput = new JSONObject();
+			JSONObject order = new JSONObject();
+			JSONObject add = new JSONObject();
+			order.put("orderID", orders.size());
+			add.put("street", address);
+			add.put("ZIP", zip);
+			order.put("address", add);
+			order.put("drink", drinktype);
+			orderinput.put("order", order);
+			orderArrays.add(orderinput);
+			try (FileWriter file = new FileWriter("order-input.json")) {
+				file.write(orderArrays.toString());
+				file.flush();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
 			if (temp == 1) {
 				status = 1;
 				if (condMap.size() != 0) {
@@ -252,7 +293,7 @@ public class Main {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-
+					//app response
 					JSONObject AppResponse = new JSONObject();
 					JSONObject app = new JSONObject();
 					app.put("orderID", orders.size());
@@ -262,13 +303,13 @@ public class Main {
 					AppResponse.put("user-response", app);
 					userArray.add(AppResponse);
 					try (FileWriter file = new FileWriter("App-response.json")) {
-//     			    System.out.print("Hello9");
 						file.write(userArray.toString());
 						file.flush();
 
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
+					
 
 				}
 
