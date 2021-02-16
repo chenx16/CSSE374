@@ -24,8 +24,8 @@ import Data.SugarCond;
 import Data.SugarIng;
 import Data.WhippedCream;
 import Domain.AbstractOrder;
-import Domain.RecipeOrder;
-import Domain.SpecifiedOrder;
+import Domain.RecipeOrderFactory;
+import Domain.SpecifiedOrderFactory;
 
 public class Main {
 	static int orderID = 0;
@@ -46,16 +46,25 @@ public class Main {
 		
 		DrinkType beverage = null;
 		
+		//FactoryA mFactoryA = new FactoryA();
+	    //mFactoryA.Manufacture().Show();
+
+	    //FactoryB mFactoryB = new FactoryB();
+	    //mFactoryB.Manufacture().Show();
+	        
+		SpecifiedOrderFactory specifiedfact = new SpecifiedOrderFactory ();
+		RecipeOrderFactory recipefact = new RecipeOrderFactory ();
+	    
 		System.out.println("Please type in your drink name:");
 		String drinktype = scanner.nextLine();
 		System.out.println("Do you want to DIY order (Y/N)");
 		String de = scanner.nextLine();
 		ArrayList<CondimentDecorator> condiments = new ArrayList<CondimentDecorator>();
 		if(de.equals("Y")) {
-			 order = new SpecifiedOrder(orderID,address,zip, drinktype, condiments);
+			 order =specifiedfact.OrderCoffee(orderID,address,zip, drinktype, condiments);
 			 order.toString();
 		}else {
-			 order = new RecipeOrder(orderID,address,zip, drinktype, condiments);
+			 order = recipefact.OrderCoffee(orderID,address,zip, drinktype, condiments);
 			 order.toString();
 		}
 		orderID++;

@@ -1,3 +1,5 @@
+package Data;
+
 public class Coffee extends IngrendientDecorator {
 DrinkType d;
 String method;

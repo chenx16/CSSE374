@@ -29,20 +29,6 @@ public class SpecifiedOrder extends AbstractOrder {
 		
 //		this.controller = new SimpleController(orderID);
 //	}
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
-
 
 	public SpecifiedOrder(int orderID, String address, String zip, String drinktype,
 			ArrayList<CondimentDecorator> arrayList) {
