@@ -72,22 +72,22 @@ public class Main {
 			String de = scanner.nextLine();
 			ArrayList<CondimentDecorator> condiments = new ArrayList<CondimentDecorator>();
 			if (de.equals("Y")) {
-				System.out.println(orderID);
+				
 				AbstractOrder order = new SpecifiedOrder(orderID, address, zip, drinktype, condiments);
 				orders.add(order);
-				System.out.println(orders.size());
+				
 				order.toString();
 			} else {
-				System.out.println(orderID);
+				
 
 				AbstractOrder order = new RecipeOrder(orderID, address, zip, drinktype, condiments);
 				orders.add(order);
-				System.out.println(orders.size());
+				
 				order.toString();
 			}
-			System.out.println(orders.get(orderID).orderID);
+			
 			orderID++;
-			System.out.println(orderID);
+			
 			switch (drinktype) {
 			case "Columbia Dark":
 				beverage = new ColumbiaDark();

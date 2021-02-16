@@ -24,9 +24,9 @@ class Test {
 	       System.out.println();
 	       testControllerOutput();
 	       System.out.println();
-	       //testOrderOutput();
+	       testOrderOutput();
 	       System.out.println();
-	       //testCommandOutput();
+	       testCommandOutput();
 	       System.out.println();
 	       testAppOutput();
 
@@ -84,16 +84,11 @@ class Test {
 	
 	
 	private void parseOObject(JSONObject c) {
-		JSONArray a = (JSONArray) c.get("condiments");
-		System.out.println("condiment: " +a);
-		
-        JSONObject add = (JSONObject) c.get("address");    
+
+
+        JSONObject add = (JSONObject) c.get("order");    
         System.out.println("address: " +add);
-         
-        String id = String.valueOf(c.get("orderId"));  
-        System.out.println("orderId: " + id);
-         
-		
+
 	}
 
 

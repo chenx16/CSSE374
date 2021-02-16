@@ -1,1 +1,1 @@
-[{"command":{"orderID":1,"DrinkName":"Latte","Requesttype":"Simple"}}]
+[{"command":{"orderID":1,"DrinkName":"Americano","Requesttype":"Simple"}},{"command":{"orderID":3,"DrinkName":"Decaf","Requesttype":"Programmable"}}]
