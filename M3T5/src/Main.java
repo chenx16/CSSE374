@@ -52,7 +52,7 @@ public class Main {
 			ingreMap = new HashMap<String, String>();
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("--------------------------------------------");
-			System.out.println("System: Start order");
+			System.out.println("System: Start the order");
 			System.out.println("Enter your address");
 			String address = scanner.nextLine();
 			System.out.println("Enter your zipcode please");
@@ -68,7 +68,7 @@ public class Main {
 
 			SpecifiedOrderFactory specifiedfact = new SpecifiedOrderFactory();
 			RecipeOrderFactory recipefact = new RecipeOrderFactory();
-
+			System.out.println(orderID);
 			System.out.println("Please type in your drink name:");
 			String drinktype = scanner.nextLine();
 			System.out.println("Do you want to DIY order (Y/N)");
@@ -259,40 +259,37 @@ public class Main {
 			} else {
 				status = 0;
 			}
-
-			JSONObject response = new JSONObject();
-	        try {
-	        	response.put("orderID", orderID);
-	        	response.put("status", status);
-	        	response.put("errordesc", error);
-			} catch (JSONException e) {
-				
-				e.printStackTrace();
-			}
-	        JSONObject dr = new JSONObject(); 
-	        try {
-				dr.put("drinkresponse", response);
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-	        try (FileWriter file = new FileWriter("controller-response.json")) {
-	        	 
-	            file.write(dr.toString());
-	            file.flush();
-	 
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	        
-	 
-	        try (FileWriter file = new FileWriter("order-input.json")) {
-	        	 
-	            file.write(order.toString());
-	            file.flush();
-	 
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+//			JSONArray responseArrays = new JSONArray();
+//			 JSONObject controllerResponse = new JSONObject();
+//			  JSONObject orderId = new JSONObject();
+//			  try {
+//				orderId.put("orderID", orderID);
+//				orderId.put("status", 0);
+//			  controllerResponse.put("drinkResponse", orderId);
+//			 
+//			} catch (JSONException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+//			 
+//			 // responseArrays.add(controllerResponse);
+//			  try (FileWriter file = new FileWriter("controller-response.json")) {
+////				    System.out.print("Hello9");
+//		            file.write(responseArrays.toString());
+//		            file.flush();
+//		            
+//		        } catch (IOException e) {
+//		            e.printStackTrace();
+//		        }
+//	 
+//	        try (FileWriter file = new FileWriter("order-input.json")) {
+//	        	 
+//	            file.write(order.toString());
+//	            file.flush();
+//	 
+//	        } catch (IOException e) {
+//	            e.printStackTrace();
+//	        }
 		}
 		
 	}
