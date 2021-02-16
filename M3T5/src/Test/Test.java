@@ -24,9 +24,9 @@ class Test {
 	       System.out.println();
 	       testControllerOutput();
 	       System.out.println();
-	       testOrderOutput();
+	       //testOrderOutput();
 	       System.out.println();
-	       testCommandOutput();
+	       //testCommandOutput();
 	       System.out.println();
 	       testAppOutput();
 
@@ -56,13 +56,9 @@ class Test {
 	private static void parseConObject(JSONObject controller) 
     {
 
-        JSONObject controllerobj = (JSONObject) controller.get("drinkResponse");
-         
-        String firstName = String.valueOf( controllerobj.get("orderID"));    
-        System.out.println("orderID: " + firstName);
-         
-        String lastName = String.valueOf(controllerobj.get("status"));  
-        System.out.println("status: " + lastName);
+        //JSONObject controllerobj = (JSONObject) controller.get("drinkResponse");
+        JSONObject a = (JSONObject) controller.get("drinkResponse");
+		System.out.println("user-response: " +a);
          
     }
 	
@@ -152,19 +148,10 @@ class Test {
 	
 	private void parseAObject(JSONObject c) {
 		// TODO Auto-generated method stub
-		String a = (String) c.get("status-message");
-		System.out.println("status-message: " +a);
+		JSONObject a = (JSONObject) c.get("user-response");
+		System.out.println("user-response: " +a);
 		
-        String id = String.valueOf(c.get("orderID"));  
-        System.out.println("orderID: " + id);
-       
-
-        String id2 = String.valueOf(c.get("coffee_machine_id"));  
-        System.out.println("coffee_machine_id: " + id2);
-        
-        
-        String id1 = String.valueOf(c.get("status"));  
-        System.out.println("status: " + id1);
+      
 	}
 
 
