@@ -6,7 +6,7 @@ public class RecipeOrderFactory extends OrderFactory{
 	public AbstractOrder OrderCoffee() {
 		// TODO Auto-generated method stub
 		System.out.println("You ordered coffee with existing recipe");
-		return null;
+		return new RecipeOrder();
 	}
 
 

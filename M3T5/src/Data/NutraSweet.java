@@ -2,9 +2,12 @@ package Data;
 
 public class NutraSweet extends CondimentDecorator {
 DrinkType d;
-	
-	public NutraSweet (DrinkType d) {
+int qty;
+String name;
+	public NutraSweet (DrinkType d, int qty) {
 		this.d = d;
+		this.qty = qty;
+		this.name = "NutraSweet";
 	}
 
 	@Override
